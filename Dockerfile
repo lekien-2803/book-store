@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Build ứng dụng Golang
-RUN go build -o main .
+RUN go build -o myapp .
 
 # Chạy ứng dụng khi container khởi động
-CMD ["/app/main"]
+CMD ["./myapp"]
