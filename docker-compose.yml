@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - "8080:8080" # Thay đổi cổng theo cấu hình của ứng dụng Golang
+      - "8888:8888" # Thay đổi cổng theo cấu hình của ứng dụng Golang
     volumes:
       - .:/app # Gắn kết thư mục nguồn hiện tại vào container để phát triển
       - go_cache:/root/.cache/go-build # Cache build cho Go để tăng tốc quá trình build

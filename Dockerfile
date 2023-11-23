@@ -4,11 +4,15 @@ FROM golang:alpine
 # Thiết lập /app làm thư mục làm việc
 WORKDIR /app
 
-# Copy tất cả file trong thư mục hiện tại vào /app trong container
+# Sao chép các tệp go.mod và go.sum và tải các phụ thuộc
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Sao chép mã nguồn của ứng dụng
 COPY . .
 
-# Build ứng dụng Golang
-RUN go build -o myapp .
+# Biên dịch ứng dụng
+RUN go build -o myapp
 
-# Chạy ứng dụng khi container khởi động
+# Khởi chạy ứng dụng khi container bắt đầu
 CMD ["./myapp"]
